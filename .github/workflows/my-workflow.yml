@@ -14,9 +14,15 @@ jobs:
       - name: hello-action
         uses: ./.github/actions/hello-world
 
+      - name: install deps
+        run: |
+          npm --prefix ./.github/actions/joke-action install ./.github/actions/joke-action
+          npm --prefix ./.github/actions/issue-maker install ./.github/actions/issue-maker
+
       - name: ha-ha
         uses: ./.github/actions/joke-action
         id: jokes
+
 
       - name: create-issue
         uses: ./.github/actions/issue-maker
